@@ -48,3 +48,14 @@ variable "samplex" {
 output "samplex" {
   value = "value 1 = ${var.samplex[0]}, value 2 = ${var.samplex[2]}"
 }
+
+variable "sampley" {
+  default = {
+    string  = "welcome",
+    number  =  666,
+    boolean = true
+  }
+}
+output "sampley" {
+  value = "value 1 = ${var.sampley["string"]}, value 2 = ${var.sampley["number"]}"
+}
