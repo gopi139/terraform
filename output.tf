@@ -10,3 +10,6 @@ output "abc1" {
 }
 
 variable "abc2" {}
+output "abc2" {
+  value = var.abc2
+}
