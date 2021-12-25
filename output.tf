@@ -1,3 +1,3 @@
 output "abc" {
-  value = "hello"
+  value = "hello\nwelcome"
 }
