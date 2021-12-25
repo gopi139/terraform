@@ -37,3 +37,14 @@ variable "sample3" {
 output "sample3" {
   value = var.sample3
 }
+
+variable "samplex" {
+  default = [
+     "hai",
+      333,
+      false
+  ]
+}
+output "samplex" {
+  value = "value 1 = ${var.samplex[0]}, value 2 = ${var.samplex[2]}"
+}
