@@ -59,3 +59,8 @@ variable "sampley" {
 output "sampley" {
   value = "value 1 = ${var.sampley["string"]}, value 2 = ${var.sampley["number"]}"
 }
+
+variable "a" {}
+output "a" {
+  value = var.a
+}
