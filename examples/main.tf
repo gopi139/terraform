@@ -40,7 +40,7 @@ resource "aws_security_group" "allow_sample" {
 terraform {
   backend "s3" {
     bucket = "terraform-139"
-    key    = "example/sample/terraform.tfvars"
+    key    = "example/sample/terraform.tfstate"
     region = "us-east-1"
   }
 }
