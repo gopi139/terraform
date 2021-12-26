@@ -1,5 +1,5 @@
 resource "aws_instance" "sample" {
-  count         = length(var.name)
+  count         = 0
   ami           = "ami-0760b951ddb0c20c9"
   instance_type =var.instance_type == "" ? "t3.micro" : var.instance_type
   vpc_security_group_ids = [var.SGID]
