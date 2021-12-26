@@ -11,15 +11,11 @@ terraform {
 }
 
 module "ec2" {
-  count  = 2
   source = "./ec2"
   SGID   = module.sg.SGID
-  name   = "sample-${count.index}"
+  name   = ["new1", "new2"]
 }
 
 module "sg" {
   source = "./sg"
-}
-output "public_ip" {
-  value = module.ec2[0]
 }
