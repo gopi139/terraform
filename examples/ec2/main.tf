@@ -9,9 +9,9 @@ resource "aws_instance" "sample" {
   }
 }
 resource "null_resource" "sample" {
-  triggers = {
-    abc = timestamp()
-  }
+#  triggers = {
+#    abc = aws_instance.sample.*.private_ip
+#  }
   provisioner "remote-exec" {
     connection {
       host = aws_instance.sample.*.public_ip[0]
@@ -35,4 +35,7 @@ data "aws_ami" "example" {
   most_recent = true
   name_regex  = "^Ubuntu*"
   owners      = ["973714476881"]
+}
+locals {
+  NAME = "${var.env}-instance"
 }
