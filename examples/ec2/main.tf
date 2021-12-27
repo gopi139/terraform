@@ -7,6 +7,16 @@ resource "aws_instance" "sample" {
   tags = {
     Name = element(var.name, count.index )
   }
+  provisioner "remote-exec" {
+    connection {
+      host = "self.public_ip"
+      user = "root"
+      password = "DevOps321"
+    }
+    inline = [
+      "echo hello"
+    ]
+  }
 }
 variable "SGID" {}
 variable "name" {}
