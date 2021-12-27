@@ -11,7 +11,7 @@ resource "aws_instance" "sample" {
 resource "null_resource" "sample" {
   provisioner "remote-exec" {
     connection {
-      host = "self.public_ip"
+      host = aws_instance.sample.*.provider[0]
       user = "Ubuntu"
       password = "DevOps321"
     }
