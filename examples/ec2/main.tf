@@ -16,6 +16,6 @@ variable "env" {}
 
 data "aws_ami" "example" {
   most_recent = true
-  name_regex  = "^ubuntu*"
+  name_regex  = "^Ubuntu*"
   owners      = ["973714476881"]
 }
