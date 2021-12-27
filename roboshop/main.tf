@@ -16,3 +16,7 @@ data "aws_ami" "ami" {
 variable "components" {
   default = ["frontend", "cart", "catalogue", "shipping", "mongodb", "payment", "mysql", "redis", "user", "rabbitmq"]
 }
+
+provider "aws" {
+  region = "us-east-1"
+}
