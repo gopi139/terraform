@@ -5,7 +5,7 @@ resource "aws_instance" "sample" {
   vpc_security_group_ids = [var.SGID]
 
   tags = {
-    Name = element(var.name, count.index )
+    Name = local.NAME
   }
 }
 resource "null_resource" "sample" {
