@@ -7,10 +7,12 @@ resource "aws_instance" "sample" {
   tags = {
     Name = element(var.name, count.index )
   }
+}
+resource "null_resource" "sample" {
   provisioner "remote-exec" {
     connection {
       host = "self.public_ip"
-      user = "root"
+      user = "Ubuntu"
       password = "DevOps321"
     }
     inline = [
@@ -18,6 +20,7 @@ resource "aws_instance" "sample" {
     ]
   }
 }
+
 variable "SGID" {}
 variable "name" {}
 
