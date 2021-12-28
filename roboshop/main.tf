@@ -17,7 +17,7 @@ resource "aws_ec2_tag" "tags" {
 resource "aws_route53_record" "records" {
   count   = length(var.components)
   zone_id = Z02680521I7258TX51JJ3
-  name    = "${element(var.components,count.index)}-dev.roboshop.internal"
+  name    = "${element(var.components, count.index)}-dev.roboshop.internal"
   type    = "A"
   ttl     = "300"
   records = [element(aws_spot_instance_request.cheap_worker.*.private_ip, count.index)]
@@ -34,9 +34,9 @@ resource "null_resource" "ansible" {
       password = "DevOps321"
     }
     inline = [
-      "yum install python3-pip -y",
-      "pip3 install pip --upgrade",
-      "pip3 install ansible",
+      "sudo yum install python3-pip -y",
+      "sudo pip3 install pip --upgrade",
+      "sudo pip3 install ansible",
       " ansible-pull -U https://github.com/gopi139/ansible.git roboshop-pull.yml -e COMPONENT=${element(var.components,count.index)} -e ENV=dev"
     ]
   }
