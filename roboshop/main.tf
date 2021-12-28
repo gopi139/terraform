@@ -16,7 +16,7 @@ resource "aws_ec2_tag" "tags" {
 }
 resource "aws_route53_record" "records" {
   count   = length(var.components)
-  zone_id = Z02680521I7258TX51JJ3
+  zone_id = "Z02680521I7258TX51JJ3"
   name    = "${element(var.components, count.index)}-dev.roboshop.internal"
   type    = "A"
   ttl     = "300"
